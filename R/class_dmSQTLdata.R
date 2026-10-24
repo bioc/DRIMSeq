@@ -38,23 +38,18 @@ NULL
 #' # --------------------------------------------------------------------------
 #' # Create dmSQTLdata object
 #' # --------------------------------------------------------------------------
-#' # Use subsets of data defined in the GeuvadisTranscriptExpr package
+#' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' library(GeuvadisTranscriptExpr)
-#' \donttest{
-#' geuv_counts <- GeuvadisTranscriptExpr::counts
-#' geuv_genotypes <- GeuvadisTranscriptExpr::genotypes
-#' geuv_gene_ranges <- GeuvadisTranscriptExpr::gene_ranges
-#' geuv_snp_ranges <- GeuvadisTranscriptExpr::snp_ranges
+#' .load_data("geuvadis")
 #' 
-#' colnames(geuv_counts)[c(1,2)] <- c("feature_id", "gene_id")
-#' colnames(geuv_genotypes)[4] <- "snp_id"
-#' geuv_samples <- data.frame(sample_id = colnames(geuv_counts)[-c(1,2)])
+#' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
+#' colnames(genotypes)[4] <- "snp_id"
+#' samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 #' 
-#' d <- dmSQTLdata(counts = geuv_counts, gene_ranges = geuv_gene_ranges,  
-#'   genotypes = geuv_genotypes, snp_ranges = geuv_snp_ranges, 
-#'   samples = geuv_samples, window = 5e3)
-#' }
+#' d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,  
+#'   genotypes = genotypes, snp_ranges = snp_ranges, 
+#'   samples = samples, window = 5e3)
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\linkS4class{dmSQTLprecision}}, 
 #'   \code{\linkS4class{dmSQTLfit}}, \code{\linkS4class{dmSQTLtest}}
@@ -231,23 +226,18 @@ blocks_per_gene <- function(g, genotypes){
 #' # --------------------------------------------------------------------------
 #' # Create dmSQTLdata object
 #' # --------------------------------------------------------------------------
-#' # Use subsets of data defined in the GeuvadisTranscriptExpr package
+#' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' library(GeuvadisTranscriptExpr)
-#' \donttest{
-#' geuv_counts <- GeuvadisTranscriptExpr::counts
-#' geuv_genotypes <- GeuvadisTranscriptExpr::genotypes
-#' geuv_gene_ranges <- GeuvadisTranscriptExpr::gene_ranges
-#' geuv_snp_ranges <- GeuvadisTranscriptExpr::snp_ranges
+#' .load_data("geuvadis")
 #' 
-#' colnames(geuv_counts)[c(1,2)] <- c("feature_id", "gene_id")
-#' colnames(geuv_genotypes)[4] <- "snp_id"
-#' geuv_samples <- data.frame(sample_id = colnames(geuv_counts)[-c(1,2)])
+#' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
+#' colnames(genotypes)[4] <- "snp_id"
+#' samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 #' 
-#' d <- dmSQTLdata(counts = geuv_counts, gene_ranges = geuv_gene_ranges,  
-#'   genotypes = geuv_genotypes, snp_ranges = geuv_snp_ranges, 
-#'   samples = geuv_samples, window = 5e3)
-#' }
+#' d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,  
+#'   genotypes = genotypes, snp_ranges = snp_ranges, 
+#'   samples = samples, window = 5e3)
+#' 
 #' @seealso \code{\link{plotData}}
 #' @author Malgorzata Nowicka
 #' @export
@@ -436,22 +426,17 @@ dmSQTLdata <- function(counts, gene_ranges, genotypes, snp_ranges, samples,
 #' # --------------------------------------------------------------------------
 #' # Create dmSQTLdata object
 #' # --------------------------------------------------------------------------
-#' # Use subsets of data defined in the GeuvadisTranscriptExpr package
+#' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' library(GeuvadisTranscriptExpr)
-#' \donttest{
-#' geuv_counts <- GeuvadisTranscriptExpr::counts
-#' geuv_genotypes <- GeuvadisTranscriptExpr::genotypes
-#' geuv_gene_ranges <- GeuvadisTranscriptExpr::gene_ranges
-#' geuv_snp_ranges <- GeuvadisTranscriptExpr::snp_ranges
+#' .load_data("geuvadis")
 #' 
-#' colnames(geuv_counts)[c(1,2)] <- c("feature_id", "gene_id")
-#' colnames(geuv_genotypes)[4] <- "snp_id"
-#' geuv_samples <- data.frame(sample_id = colnames(geuv_counts)[-c(1,2)])
+#' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
+#' colnames(genotypes)[4] <- "snp_id"
+#' samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 #' 
-#' d <- dmSQTLdata(counts = geuv_counts, gene_ranges = geuv_gene_ranges,  
-#'   genotypes = geuv_genotypes, snp_ranges = geuv_snp_ranges, 
-#'   samples = geuv_samples, window = 5e3)
+#' d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,  
+#'   genotypes = genotypes, snp_ranges = snp_ranges, 
+#'   samples = samples, window = 5e3)
 #' 
 #' # --------------------------------------------------------------------------
 #' # sQTL analysis - simple group comparison
@@ -462,7 +447,7 @@ dmSQTLdata <- function(counts, gene_ranges, genotypes, snp_ranges, samples,
 #'   minor_allele_freq = 5, min_gene_expr = 10, min_feature_expr = 10)
 #'   
 #' plotData(d)
-#' }
+#' 
 #' @rdname dmFilter
 #' @export
 setMethod("dmFilter", "dmSQTLdata", function(x, min_samps_gene_expr = 0, 
@@ -509,22 +494,17 @@ setMethod("dmFilter", "dmSQTLdata", function(x, min_samps_gene_expr = 0,
 #' # --------------------------------------------------------------------------
 #' # Create dmSQTLdata object
 #' # --------------------------------------------------------------------------
-#' # Use subsets of data defined in the GeuvadisTranscriptExpr package
+#' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' library(GeuvadisTranscriptExpr)
-#' \donttest{
-#' geuv_counts <- GeuvadisTranscriptExpr::counts
-#' geuv_genotypes <- GeuvadisTranscriptExpr::genotypes
-#' geuv_gene_ranges <- GeuvadisTranscriptExpr::gene_ranges
-#' geuv_snp_ranges <- GeuvadisTranscriptExpr::snp_ranges
+#' .load_data("geuvadis")
 #' 
-#' colnames(geuv_counts)[c(1,2)] <- c("feature_id", "gene_id")
-#' colnames(geuv_genotypes)[4] <- "snp_id"
-#' geuv_samples <- data.frame(sample_id = colnames(geuv_counts)[-c(1,2)])
+#' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
+#' colnames(genotypes)[4] <- "snp_id"
+#' samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 #' 
-#' d <- dmSQTLdata(counts = geuv_counts, gene_ranges = geuv_gene_ranges,  
-#'   genotypes = geuv_genotypes, snp_ranges = geuv_snp_ranges, 
-#'   samples = geuv_samples, window = 5e3)
+#' d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,  
+#'   genotypes = genotypes, snp_ranges = snp_ranges, 
+#'   samples = samples, window = 5e3)
 #' 
 #' # --------------------------------------------------------------------------
 #' # sQTL analysis - simple group comparison
@@ -535,7 +515,7 @@ setMethod("dmFilter", "dmSQTLdata", function(x, min_samps_gene_expr = 0,
 #'   minor_allele_freq = 5, min_gene_expr = 10, min_feature_expr = 10)
 #'   
 #' plotData(d)
-#' }
+#' 
 #' @rdname plotData
 #' @export
 setMethod("plotData", "dmSQTLdata", function(x, plot_type = "features"){

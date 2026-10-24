@@ -63,19 +63,10 @@ Hochberg adjusted p-values.}
 # --------------------------------------------------------------------------
 # Create dmDSdata object 
 # --------------------------------------------------------------------------
-## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 
-library(PasillaTranscriptExpr)
-
-data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-
-## Load metadata
-pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-header = TRUE, as.is = TRUE)
-
-## Load counts
-pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-header = TRUE, as.is = TRUE)
+## Load data
+.load_data("pasilla")
 
 ## Create a pasilla_samples data frame
 pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -84,11 +75,6 @@ levels(pasilla_samples$group)
 
 ## Create a dmDSdata object
 d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-
-## Use a subset of genes, which is defined in the following file
-gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-
-d <- d[names(d) \%in\% gene_id_subset, ]
 
 # --------------------------------------------------------------------------
 # Differential transcript usage analysis - simple two group comparison 

@@ -37,19 +37,10 @@ NULL
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -59,11 +50,8 @@ NULL
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
 #' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
 #' d <- d[names(d) %in% gene_id_subset, ]
-#' }
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\linkS4class{dmDSprecision}}, \code{\linkS4class{dmDSfit}},
 #'   \code{\linkS4class{dmDStest}}
@@ -204,19 +192,10 @@ setMethod("[", "dmDSdata", function(x, i, j){
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -226,11 +205,8 @@ setMethod("[", "dmDSdata", function(x, i, j){
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
 #' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
 #' d <- d[names(d) %in% gene_id_subset, ]
-#' }
+#' 
 #' @seealso \code{\link{plotData}}
 #' @author Malgorzata Nowicka
 #' @export
@@ -361,19 +337,10 @@ setGeneric("dmFilter", function(x, ...) standardGeneric("dmFilter"))
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -382,9 +349,6 @@ setGeneric("dmFilter", function(x, ...) standardGeneric("dmFilter"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
 #' 
 #' d <- d[names(d) %in% gene_id_subset, ]
 #' 
@@ -400,7 +364,7 @@ setGeneric("dmFilter", function(x, ...) standardGeneric("dmFilter"))
 #'   min_gene_expr = 10, min_feature_expr = 10)
 #' 
 #' plotData(d)
-#' }
+#' 
 #' @seealso \code{\link{plotData}}
 #' @author Malgorzata Nowicka
 #' @rdname dmFilter
@@ -461,19 +425,10 @@ setGeneric("plotData", function(x, ...) standardGeneric("plotData"))
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -482,11 +437,6 @@ setGeneric("plotData", function(x, ...) standardGeneric("plotData"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -500,7 +450,7 @@ setGeneric("plotData", function(x, ...) standardGeneric("plotData"))
 #'   min_gene_expr = 10, min_feature_expr = 10)
 #' 
 #' plotData(d)
-#' }
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\link{plotPrecision}}, \code{\link{plotProportions}},
 #'   \code{\link{plotPValues}}

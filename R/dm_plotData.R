@@ -1,6 +1,6 @@
 #' @importFrom ggplot2 ggplot aes_string theme_bw xlab ylab ggtitle 
-#' geom_histogram theme element_text coord_cartesian geom_text geom_bar 
-#' scale_fill_manual
+#'             geom_histogram theme element_text coord_cartesian geom_text geom_bar 
+#'             scale_fill_manual
 
 
 dm_plotDataFeatures <- function(tt, fill_color = "seagreen4"){

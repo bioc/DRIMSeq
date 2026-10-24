@@ -57,57 +57,65 @@ import(GenomicRanges)
 import(edgeR)
 import(methods)
 importFrom(IRanges,width)
-importFrom(S4Vectors,elementNROWS)
-importFrom(S4Vectors,queryHits)
-importFrom(S4Vectors,subjectHits)
-importFrom(ggplot2,aes_string)
-importFrom(ggplot2,coord_cartesian)
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,geom_bar)
-importFrom(ggplot2,geom_boxplot)
-importFrom(ggplot2,geom_histogram)
-importFrom(ggplot2,geom_hline)
-importFrom(ggplot2,geom_jitter)
-importFrom(ggplot2,geom_line)
-importFrom(ggplot2,geom_point)
-importFrom(ggplot2,geom_ribbon)
-importFrom(ggplot2,geom_text)
-importFrom(ggplot2,geom_vline)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,ggtitle)
-importFrom(ggplot2,guide_colorbar)
-importFrom(ggplot2,guide_legend)
-importFrom(ggplot2,guides)
-importFrom(ggplot2,position_dodge)
-importFrom(ggplot2,position_jitterdodge)
-importFrom(ggplot2,scale_colour_gradient)
-importFrom(ggplot2,scale_colour_manual)
-importFrom(ggplot2,scale_fill_manual)
-importFrom(ggplot2,scale_x_discrete)
-importFrom(ggplot2,theme)
-importFrom(ggplot2,theme_bw)
-importFrom(ggplot2,xlab)
-importFrom(ggplot2,ylab)
+importFrom(S4Vectors,
+  elementNROWS,
+  queryHits,
+  subjectHits
+)
+importFrom(ggplot2,
+  aes_string,
+  coord_cartesian,
+  element_blank,
+  element_text,
+  geom_bar,
+  geom_boxplot,
+  geom_histogram,
+  geom_hline,
+  geom_jitter,
+  geom_line,
+  geom_point,
+  geom_ribbon,
+  geom_text,
+  geom_vline,
+  ggplot,
+  ggtitle,
+  guide_colorbar,
+  guide_legend,
+  guides,
+  position_dodge,
+  position_jitterdodge,
+  scale_colour_gradient,
+  scale_colour_manual,
+  scale_fill_manual,
+  scale_x_discrete,
+  theme,
+  theme_bw,
+  xlab,
+  ylab
+)
 importFrom(limma,nonEstimable)
 importFrom(reshape2,melt)
-importFrom(stats,aggregate)
-importFrom(stats,complete.cases)
-importFrom(stats,constrOptim)
-importFrom(stats,loess)
-importFrom(stats,loess.control)
-importFrom(stats,median)
-importFrom(stats,model.matrix)
-importFrom(stats,na.omit)
-importFrom(stats,nlm)
-importFrom(stats,nlminb)
-importFrom(stats,optim)
-importFrom(stats,optimHess)
-importFrom(stats,optimize)
-importFrom(stats,p.adjust)
-importFrom(stats,pchisq)
-importFrom(stats,predict)
-importFrom(stats,quantile)
-importFrom(stats,runif)
-importFrom(utils,head)
-importFrom(utils,tail)
+importFrom(stats,
+  aggregate,
+  complete.cases,
+  constrOptim,
+  loess,
+  loess.control,
+  median,
+  model.matrix,
+  na.omit,
+  nlm,
+  nlminb,
+  optim,
+  optimHess,
+  optimize,
+  p.adjust,
+  pchisq,
+  predict,
+  quantile,
+  runif
+)
+importFrom(utils,
+  head,
+  tail
+)

@@ -39,19 +39,10 @@ NULL
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' 
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -60,11 +51,6 @@ NULL
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -251,19 +237,10 @@ setGeneric("dmTest", function(x, ...) standardGeneric("dmTest"))
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -272,11 +249,6 @@ setGeneric("dmTest", function(x, ...) standardGeneric("dmTest"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -337,7 +309,7 @@ setGeneric("dmTest", function(x, ...) standardGeneric("dmTest"))
 #' 
 #' plotProportions(d, gene_id = top_gene_id, group_variable = "group", 
 #'   plot_type = "ribbonplot")
-#' }
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\link{plotPValues}} \code{\link[edgeR]{glmLRT}}
 #' @references McCarthy, DJ, Chen, Y, Smyth, GK (2012). Differential expression 
@@ -543,19 +515,10 @@ setGeneric("plotPValues", function(x, ...) standardGeneric("plotPValues"))
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -564,11 +527,6 @@ setGeneric("plotPValues", function(x, ...) standardGeneric("plotPValues"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -629,7 +587,7 @@ setGeneric("plotPValues", function(x, ...) standardGeneric("plotPValues"))
 #' 
 #' plotProportions(d, gene_id = top_gene_id, group_variable = "group", 
 #'   plot_type = "ribbonplot")
-#' }
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\link{plotData}}, \code{\link{plotPrecision}},
 #'   \code{\link{plotProportions}}

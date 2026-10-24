@@ -11,6 +11,7 @@ BiocStyle::latex()
 \usepackage[utf8]{inputenc}
 \usepackage[sort]{cite}
 \usepackage{xstring}
+\usepackage{hyperref}
 
 \bioctitle[Differential transcript usage and transcript usage QTL analyses in RNA-seq with the DRIMSeq package]{DRIMSeq: Dirichlet-multinomial framework for differential transcript usage and transcript usage QTL analyses in RNA-seq}
 
@@ -122,7 +123,7 @@ In their RNA-seq experiment, the libraries were prepared from 7 biologically ind
 The libraries were sequenced on Illumina Genome Analyzer II using single-end and paired-end sequencing and different read lengths. 
 The RNA-seq data can be downloaded from the NCBI Gene Expression Omnibus (GEO) under the accession 
 number GSE18508. 
-In the examples below, we use a subset of \software{kallisto} \cite{Bray2016} counts available in \Biocexptpkg{PasillaTranscriptExpr} package, where you can find all the steps needed, for preprocessing the GEO data, to get a table with transcript counts.
+In the examples below, we use a subset of \software{kallisto} \cite{Bray2016} counts available on zenodo (formerly: \texttt{PasillaTranscriptExpr} package), where you can find all the steps needed, for preprocessing the GEO data, to get a table with transcript counts.
 
 
 \subsection{Differential transcript usage analysis between two conditions}
@@ -137,22 +138,11 @@ As new elements are added, the object also changes its name \Rclass{dmDSdata} $\
 
 \subsubsection{Loading pasilla data into R}
 
-The transcript-level counts obtained from \software{kallisto} and metadata are saved as text files in the \Rcode{extdata} directory of the \Biocexptpkg{PasillaTranscriptExpr} package.
+The transcript-level counts obtained from \software{kallisto} and metadata are saved as RDS files in a Zenodo repository: \href{https://zenodo.org/records/23612905}{10.5281/zenodo.23612905} (formerly in the \texttt{PasillaTranscriptExpr} package).
 
 
 <<DSpasilla1>>=
-library(PasillaTranscriptExpr)
-
-data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-
-## Load metadata
-pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-  header = TRUE, as.is = TRUE)
-
-## Load counts
-pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-  header = TRUE, as.is = TRUE)
-
+.load_data("pasilla")
 @
 
 
@@ -505,7 +495,7 @@ We use transcript quantification (expected counts from FluxCapacitor) and genoty
 
 In order to make this vignette runnable, we perform the analysis on subsets of bi-allelic SNPs and transcript expected counts for CEPH population (91 individuals) that correspond to 50 randomly selected genes from 
 chromosome 19. 
-The full dataset can be accessed from \Biocexptpkg{GeuvadisTranscriptExpr} package along with the description of preprocessing steps.
+The full dataset can be accessed from zenodo (formerly \texttt{GeuvadisTranscriptExpr} package) along with the description of preprocessing steps.
 
 
 \subsection{tuQTL analysis with the DRIMSeq package}
@@ -521,16 +511,10 @@ For each object, slots and methods are inherited from the previous one.
 
 \subsubsection{Loading GEUVADIS data into R}
 
-We use the subsets of data defined in the \Biocexptpkg{GeuvadisTranscriptExpr} package.
+We use the subsets of data defined in the zenodo snapsot (formerly in the \texttt{GeuvadisTranscriptExpr} package).
 
 <<SQTLgeuvadis, message=FALSE>>=
-library(GeuvadisTranscriptExpr)
-
-geuv_counts <- GeuvadisTranscriptExpr::counts
-geuv_genotypes <- GeuvadisTranscriptExpr::genotypes
-geuv_gene_ranges <- GeuvadisTranscriptExpr::gene_ranges
-geuv_snp_ranges <- GeuvadisTranscriptExpr::snp_ranges
-
+.load_data("geuvadis")
 @
 
 Load the \Rpackage{DRIMSeq} package.
@@ -548,13 +532,13 @@ In the \Robject{genotypes} data frame, the variable with SNP IDs must have name 
 
 
 <<SQTLdmSQTLdata_create, message=FALSE>>=
-colnames(geuv_counts)[c(1,2)] <- c("feature_id", "gene_id")
-colnames(geuv_genotypes)[4] <- "snp_id"
-geuv_samples <- data.frame(sample_id = colnames(geuv_counts)[-c(1,2)])
+colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
+colnames(genotypes)[4] <- "snp_id"
+samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 
-d <- dmSQTLdata(counts = geuv_counts, gene_ranges = geuv_gene_ranges,
-  genotypes = geuv_genotypes, snp_ranges = geuv_snp_ranges, 
-  samples = geuv_samples, window = 5e3)
+d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,
+  genotypes = genotypes, snp_ranges = snp_ranges, 
+  samples = samples, window = 5e3)
 d
 @
 

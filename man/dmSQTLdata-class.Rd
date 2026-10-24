@@ -7,8 +7,9 @@
 \alias{samples,dmSQTLdata-method}
 \alias{names,dmSQTLdata-method}
 \alias{length,dmSQTLdata-method}
-\alias{[,dmSQTLdata,ANY-method}
+\alias{[,dmSQTLdata,ANY,ANY-method}
 \alias{[,dmSQTLdata-method}
+\alias{[,dmSQTLdata,ANY-method}
 \title{dmSQTLdata object}
 \usage{
 \S4method{counts}{dmSQTLdata}(object)
@@ -19,7 +20,7 @@
 
 \S4method{length}{dmSQTLdata}(x)
 
-\S4method{[}{dmSQTLdata,ANY}(x, i, j)
+\S4method{[}{dmSQTLdata,ANY,ANY}(x, i, j)
 }
 \arguments{
 \item{x, object}{dmSQTLdata object.}
@@ -61,23 +62,18 @@ variable \code{sample_id} with unique sample names.}
 # --------------------------------------------------------------------------
 # Create dmSQTLdata object
 # --------------------------------------------------------------------------
-# Use subsets of data defined in the GeuvadisTranscriptExpr package
+# Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 
-library(GeuvadisTranscriptExpr)
-\donttest{
-geuv_counts <- GeuvadisTranscriptExpr::counts
-geuv_genotypes <- GeuvadisTranscriptExpr::genotypes
-geuv_gene_ranges <- GeuvadisTranscriptExpr::gene_ranges
-geuv_snp_ranges <- GeuvadisTranscriptExpr::snp_ranges
+.load_data("geuvadis")
 
-colnames(geuv_counts)[c(1,2)] <- c("feature_id", "gene_id")
-colnames(geuv_genotypes)[4] <- "snp_id"
-geuv_samples <- data.frame(sample_id = colnames(geuv_counts)[-c(1,2)])
+colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
+colnames(genotypes)[4] <- "snp_id"
+samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 
-d <- dmSQTLdata(counts = geuv_counts, gene_ranges = geuv_gene_ranges,  
-  genotypes = geuv_genotypes, snp_ranges = geuv_snp_ranges, 
-  samples = geuv_samples, window = 5e3)
-}
+d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,  
+  genotypes = genotypes, snp_ranges = snp_ranges, 
+  samples = samples, window = 5e3)
+
 }
 \seealso{
 \code{\linkS4class{dmSQTLprecision}}, 

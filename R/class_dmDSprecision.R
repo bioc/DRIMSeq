@@ -44,19 +44,10 @@ NULL
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -65,11 +56,6 @@ NULL
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -97,7 +83,7 @@ NULL
 #' head(mean_expression(d))
 #' common_precision(d)
 #' head(genewise_precision(d))
-#' }
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\linkS4class{dmDSdata}}, \code{\linkS4class{dmDSfit}}, 
 #'   \code{\linkS4class{dmDStest}}
@@ -394,19 +380,10 @@ setGeneric("dmPrecision", function(x, ...) standardGeneric("dmPrecision"))
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -415,11 +392,6 @@ setGeneric("dmPrecision", function(x, ...) standardGeneric("dmPrecision"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -447,7 +419,7 @@ setGeneric("dmPrecision", function(x, ...) standardGeneric("dmPrecision"))
 #' head(mean_expression(d))
 #' common_precision(d)
 #' head(genewise_precision(d))
-#' }
+#' 
 #' @seealso \code{\link{plotPrecision}} \code{\link[edgeR]{estimateDisp}}
 #' @author Malgorzata Nowicka
 #' @references McCarthy, DJ, Chen, Y, Smyth, GK (2012). Differential expression
@@ -616,19 +588,10 @@ setGeneric("plotPrecision", function(x, ...) standardGeneric("plotPrecision"))
 #' # --------------------------------------------------------------------------
 #' # Create dmDSdata object 
 #' # --------------------------------------------------------------------------
-#' ## Get kallisto transcript counts from the 'PasillaTranscriptExpr' package
+#' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
-#' library(PasillaTranscriptExpr)
-#' \donttest{
-#' data_dir  <- system.file("extdata", package = "PasillaTranscriptExpr")
-#' 
-#' ## Load metadata
-#' pasilla_metadata <- read.table(file.path(data_dir, "metadata.txt"), 
-#' header = TRUE, as.is = TRUE)
-#' 
-#' ## Load counts
-#' pasilla_counts <- read.table(file.path(data_dir, "counts.txt"), 
-#' header = TRUE, as.is = TRUE)
+#' ## Load data
+#' .load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -637,11 +600,6 @@ setGeneric("plotPrecision", function(x, ...) standardGeneric("plotPrecision"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
-#' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
-#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -669,7 +627,7 @@ setGeneric("plotPrecision", function(x, ...) standardGeneric("plotPrecision"))
 #' head(mean_expression(d))
 #' common_precision(d)
 #' head(genewise_precision(d))
-#' }
+#' 
 #' @author Malgorzata Nowicka
 #' @seealso \code{\link{plotData}}, \code{\link{plotProportions}},
 #'   \code{\link{plotPValues}}

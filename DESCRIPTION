@@ -2,11 +2,13 @@ Package: DRIMSeq
 Type: Package
 Title: Differential transcript usage and tuQTL analyses with Dirichlet-multinomial model
     in RNA-seq
-Version: 1.41.1
-Date: 2017-05-24
-Authors@R: c(person(given = "Malgorzata", family = "Nowicka", 
-    role = c("aut", "cre"),
-    email = "gosia.nowicka.uzh@gmail.com"))
+Version: 1.41.2
+Date: 2026-10-22
+Authors@R: c(person(given = "Malgorzata", family = "Nowicka",
+                    role = c("aut"), email = "gosia.nowicka.uzh@gmail.com"),
+             person("Mark D.", "Robinson", role = c("cre"),
+                    email = "mark.robinson@mls.uzh.ch",
+                    comment = c(ORCID = "0000-0002-3048-5518")))
 Description: The package provides two frameworks. One for the differential
     transcript usage analysis between different conditions and one for the tuQTL analysis.
     Both are based on modeling the counts of genomic features (i.e., transcripts) with the Dirichlet-multinomial distribution. The package also
@@ -33,8 +35,6 @@ Imports:
     ggplot2,
     reshape2
 Suggests:
-    PasillaTranscriptExpr,
-    GeuvadisTranscriptExpr,
     grid,
     BiocStyle,
     knitr,
@@ -44,6 +44,7 @@ ByteCompile: false
 VignetteBuilder: knitr
 Collate:
     'DRIMSeq.R'
+    'aaa.R'
     'class_show_utils.R'
     'class_MatrixList.R'
     'class_dmDSdata.R'
@@ -85,6 +86,4 @@ Collate:
     'dm_plotProportions.R'
     'dm_plotPvalues.R'
     'dm_profileLikModeration.R'
-    'zzz.R'
-RoxygenNote: 6.0.1
-PackageStatus: Deprecated
+Config/roxygen2/version: 8.1.0
