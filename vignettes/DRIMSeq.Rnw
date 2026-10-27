@@ -141,15 +141,14 @@ As new elements are added, the object also changes its name \Rclass{dmDSdata} $\
 The transcript-level counts obtained from \software{kallisto} and metadata are saved as RDS files in a Zenodo repository: \href{https://zenodo.org/records/23612905}{10.5281/zenodo.23612905} (formerly in the \texttt{PasillaTranscriptExpr} package).
 
 
-<<DSpasilla1>>=
-.load_data("pasilla")
-@
-
-
 Load the \Rpackage{DRIMSeq} package.
 
 <<DSlibrary, message=FALSE>>=
 library(DRIMSeq)
+@
+
+<<DSpasilla1>>=
+.load_data("pasilla")
 @
 
 To create a \Rcode{dmDSdata} object, saved as variable \Robject{d}, we need to prepare a data frame containing information about samples and we will call it \Robject{pasilla\_samples}. 
