@@ -148,7 +148,7 @@ library(DRIMSeq)
 @
 
 <<DSpasilla1>>=
-.load_data("pasilla")
+DRIMSeq:::.load_data("pasilla")
 @
 
 To create a \Rcode{dmDSdata} object, saved as variable \Robject{d}, we need to prepare a data frame containing information about samples and we will call it \Robject{pasilla\_samples}. 
@@ -180,12 +180,6 @@ plotData(d)
 @
 
 To make the analysis runnable within this vignette, we want to keep only a small subset of genes, which is defined in the following file.
-
-<<DSdmDSdata_subset>>=
-gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-d <- d[names(d) %in% gene_id_subset, ]
-d
-@
 
 \subsubsection{Filtering}
 \label{DS_filtering}
@@ -519,7 +513,7 @@ library(DRIMSeq)
 @
 
 <<SQTLgeuvadis, message=FALSE>>=
-.load_data("geuvadis")
+DRIMSeq:::.load_data("geuvadis")
 @
 
 In the tuQTL analysis, an initial data object \Robject{d} is of \Robject{dmSQTLdata} class and, additionally to feature counts and sample information, it contains genotypes of SNPs that are in some surrounding of genes. 
