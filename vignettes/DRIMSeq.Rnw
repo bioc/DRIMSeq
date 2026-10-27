@@ -512,16 +512,15 @@ For each object, slots and methods are inherited from the previous one.
 
 We use the subsets of data defined in the zenodo snapsot (formerly in the \texttt{GeuvadisTranscriptExpr} package).
 
-<<SQTLgeuvadis, message=FALSE>>=
-.load_data("geuvadis")
-@
-
 Load the \Rpackage{DRIMSeq} package.
 
 <<SQTLlibrary, message=FALSE>>=
 library(DRIMSeq)
 @
 
+<<SQTLgeuvadis, message=FALSE>>=
+.load_data("geuvadis")
+@
 
 In the tuQTL analysis, an initial data object \Robject{d} is of \Robject{dmSQTLdata} class and, additionally to feature counts and sample information, it contains genotypes of SNPs that are in some surrounding of genes. 
 This surrounding is defined with the parameter \Rcode{window}. 
