@@ -7,9 +7,8 @@
 \alias{samples,dmSQTLdata-method}
 \alias{names,dmSQTLdata-method}
 \alias{length,dmSQTLdata-method}
-\alias{[,dmSQTLdata,ANY,ANY-method}
-\alias{[,dmSQTLdata-method}
 \alias{[,dmSQTLdata,ANY-method}
+\alias{[,dmSQTLdata-method}
 \title{dmSQTLdata object}
 \usage{
 \S4method{counts}{dmSQTLdata}(object)
@@ -20,7 +19,7 @@
 
 \S4method{length}{dmSQTLdata}(x)
 
-\S4method{[}{dmSQTLdata,ANY,ANY}(x, i, j)
+\S4method{[}{dmSQTLdata,ANY}(x, i, j)
 }
 \arguments{
 \item{x, object}{dmSQTLdata object.}
@@ -64,7 +63,7 @@ variable \code{sample_id} with unique sample names.}
 # --------------------------------------------------------------------------
 # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 
-.load_data("geuvadis")
+DRIMSeq:::.load_data("geuvadis")
 
 colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 colnames(genotypes)[4] <- "snp_id"

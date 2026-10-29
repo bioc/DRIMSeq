@@ -40,7 +40,7 @@ NULL
 #' # --------------------------------------------------------------------------
 #' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' .load_data("geuvadis")
+#' DRIMSeq:::.load_data("geuvadis")
 #' 
 #' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 #' colnames(genotypes)[4] <- "snp_id"
@@ -228,7 +228,7 @@ blocks_per_gene <- function(g, genotypes){
 #' # --------------------------------------------------------------------------
 #' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' .load_data("geuvadis")
+#' DRIMSeq:::.load_data("geuvadis")
 #' 
 #' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 #' colnames(genotypes)[4] <- "snp_id"
@@ -428,7 +428,7 @@ dmSQTLdata <- function(counts, gene_ranges, genotypes, snp_ranges, samples,
 #' # --------------------------------------------------------------------------
 #' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' .load_data("geuvadis")
+#' DRIMSeq:::.load_data("geuvadis")
 #' 
 #' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 #' colnames(genotypes)[4] <- "snp_id"
@@ -496,7 +496,7 @@ setMethod("dmFilter", "dmSQTLdata", function(x, min_samps_gene_expr = 0,
 #' # --------------------------------------------------------------------------
 #' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' .load_data("geuvadis")
+#' DRIMSeq:::.load_data("geuvadis")
 #' 
 #' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 #' colnames(genotypes)[4] <- "snp_id"

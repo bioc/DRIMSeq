@@ -36,7 +36,7 @@ NULL
 #' # --------------------------------------------------------------------------
 #' # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 #' 
-#' .load_data("geuvadis")
+#' DRIMSeq:::.load_data("geuvadis")
 #' 
 #' colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 #' colnames(genotypes)[4] <- "snp_id"

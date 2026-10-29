@@ -72,7 +72,7 @@ coefficients based on the BB model.}
 ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 
 ## Load data
-.load_data("pasilla")
+DRIMSeq:::.load_data("pasilla")
 
 ## Create a pasilla_samples data frame
 pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 

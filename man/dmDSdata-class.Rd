@@ -8,9 +8,8 @@
 \alias{samples,dmDSdata-method}
 \alias{names,dmDSdata-method}
 \alias{length,dmDSdata-method}
-\alias{[,dmDSdata,ANY,ANY-method}
-\alias{[,dmDSdata-method}
 \alias{[,dmDSdata,ANY-method}
+\alias{[,dmDSdata-method}
 \title{dmDSdata object}
 \usage{
 \S4method{counts}{dmDSdata}(object)
@@ -23,7 +22,7 @@ samples(x, ...)
 
 \S4method{length}{dmDSdata}(x)
 
-\S4method{[}{dmDSdata,ANY,ANY}(x, i, j)
+\S4method{[}{dmDSdata,ANY}(x, i, j)
 }
 \arguments{
 \item{object, x}{dmDSdata object.}
@@ -66,7 +65,7 @@ that desribe samples and are needed for the differential analysis.}
 ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 
 ## Load data
-.load_data("pasilla")
+DRIMSeq:::.load_data("pasilla")
 
 ## Create a pasilla_samples data frame
 pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 

@@ -116,7 +116,7 @@ of total samples.
 ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 
 ## Load data
-.load_data("pasilla")
+DRIMSeq:::.load_data("pasilla")
 
 ## Create a pasilla_samples data frame
 pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -146,7 +146,7 @@ plotData(d)
 # --------------------------------------------------------------------------
 # Use subsets of data defined in the Geuvadis files on zenodo (formerly: GeuvadisTranscriptExpr package)
 
-.load_data("geuvadis")
+DRIMSeq:::.load_data("geuvadis")
 
 colnames(counts)[c(1,2)] <- c("feature_id", "gene_id")
 colnames(genotypes)[4] <- "snp_id"

@@ -40,7 +40,7 @@ NULL
 #' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
 #' ## Load data
-#' .load_data("pasilla")
+#' DRIMSeq:::.load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -195,7 +195,7 @@ setMethod("[", "dmDSdata", function(x, i, j){
 #' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
 #' ## Load data
-#' .load_data("pasilla")
+#' DRIMSeq:::.load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -340,7 +340,7 @@ setGeneric("dmFilter", function(x, ...) standardGeneric("dmFilter"))
 #' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
 #' ## Load data
-#' .load_data("pasilla")
+#' DRIMSeq:::.load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
@@ -428,7 +428,7 @@ setGeneric("plotData", function(x, ...) standardGeneric("plotData"))
 #' ## Get kallisto transcript counts from zenodo (formerly: 'PasillaTranscriptExpr' package)
 #' 
 #' ## Load data
-#' .load_data("pasilla")
+#' DRIMSeq:::.load_data("pasilla")
 #' 
 #' ## Create a pasilla_samples data frame
 #' pasilla_samples <- data.frame(sample_id = pasilla_metadata$SampleName, 
