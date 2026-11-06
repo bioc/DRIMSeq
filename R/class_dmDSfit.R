@@ -53,9 +53,6 @@ NULL
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
 #' 
-#' ## Use a subset of genes, which is defined in the following file
-#' gene_id_subset <- readLines(file.path(data_dir, "gene_id_subset.txt"))
-#' 
 #' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
