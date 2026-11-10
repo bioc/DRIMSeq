@@ -41,6 +41,9 @@ samples <- data.frame(sample_id = colnames(counts)[-c(1,2)])
 d <- dmSQTLdata(counts = counts, gene_ranges = gene_ranges,  
   genotypes = genotypes, snp_ranges = snp_ranges, 
   samples = samples, window = 5e3)
+  genes_subset <- c("ENSG00000221983.2", "ENSG00000095066.6", "ENSG00000167604.7",
+                    "ENSG00000079462.2", "ENSG00000152443.8")
+  d <- d[names(d) \%in\% genes_subset, ]
 
 # --------------------------------------------------------------------------
 # sQTL analysis - simple group comparison

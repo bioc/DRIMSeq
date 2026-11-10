@@ -56,6 +56,7 @@ NULL
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
+#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -392,6 +393,7 @@ setGeneric("dmPrecision", function(x, ...) standardGeneric("dmPrecision"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
+#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 
@@ -600,6 +602,7 @@ setGeneric("plotPrecision", function(x, ...) standardGeneric("plotPrecision"))
 #' 
 #' ## Create a dmDSdata object
 #' d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
+#' d <- d[names(d) %in% gene_id_subset, ]
 #' 
 #' # --------------------------------------------------------------------------
 #' # Differential transcript usage analysis - simple two group comparison 

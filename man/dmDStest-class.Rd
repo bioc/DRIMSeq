@@ -75,6 +75,7 @@ levels(pasilla_samples$group)
 
 ## Create a dmDSdata object
 d <- dmDSdata(counts = pasilla_counts, samples = pasilla_samples)
+d <- d[names(d) \%in\% gene_id_subset, ]
 
 # --------------------------------------------------------------------------
 # Differential transcript usage analysis - simple two group comparison 
